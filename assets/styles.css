@@ -65,11 +65,11 @@
 html { scroll-behavior: smooth; }
 
 body {
-  font-family: 'DM Sans', 'Barlow', system-ui, sans-serif;
+  font-family: 'DM Sans', 'Segoe UI', Arial, system-ui, sans-serif;
   background: var(--bg);
   color: var(--text);
   overflow-x: hidden;
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
 a  { color: inherit; text-decoration: none; }
@@ -79,7 +79,7 @@ img { display: block; max-width: 100%; }
    2. TIPOGRAFIA
 ========================================================== */
 h1, h2, h3 {
-  font-family: 'Barlow Condensed', 'Barlow', sans-serif;
+  font-family: 'Barlow Condensed', 'Arial Narrow', 'Segoe UI', sans-serif;
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: -0.01em;
@@ -225,14 +225,14 @@ p { margin-top: 0; }
 
 .btn-ghost {
   color: var(--white);
-  border: 1px solid rgba(255,255,255,0.26);
-  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.56);
+  background: rgba(255,255,255,0.13);
   backdrop-filter: blur(10px);
 }
 
 .btn-ghost:hover {
-  border-color: rgba(255,255,255,0.5);
-  background: rgba(255,255,255,0.12);
+  border-color: rgba(86,199,255,0.9);
+  background: rgba(86,199,255,0.18);
 }
 
 /* Tilt / magnetic helpers */
@@ -2030,20 +2030,20 @@ input:focus, textarea:focus {
 
 /* Textos em seções navy que herdavam --muted (escuro demais) */
 .showcase .icon-step em {
-  color: rgba(185, 210, 240, 0.88);
+  color: #bfd3e6;
 }
 
 .trust-item span {
-  color: rgba(205, 222, 245, 0.90);
+  color: #d7e6f7;
 }
 
 .hero-text {
-  color: rgba(218, 232, 252, 0.95);
+  color: #eaf3ff;
 }
 
 /* Footer brand paragraph */
 .footer-brand p {
-  color: rgba(185, 205, 235, 0.88);
+  color: #bfd3e6;
 }
 
 /* Norm disclaimer */
@@ -2058,12 +2058,12 @@ input:focus, textarea:focus {
 
 /* Capability lead text on dark bg */
 .capability .lead.dark {
-  color: rgba(210, 228, 250, 0.95);
+  color: #d7e6f7;
 }
 
 /* Feature project paragraph */
 .fp-text p {
-  color: rgba(200, 220, 248, 0.95);
+  color: #d7e6f7;
 }
 
 /* CTA section paragraph */
@@ -2078,17 +2078,17 @@ input:focus, textarea:focus {
 
 /* Contact strip */
 .hvac-contact-strip {
-  color: rgba(180, 205, 235, 0.85);
+  color: #bfd3e6;
 }
 
 /* Icon step description text */
 .icon-step div em {
-  color: rgba(185, 210, 240, 0.88);
+  color: #bfd3e6;
 }
 
 /* Showcase section lead paragraph */
 .showcase-grid p {
-  color: rgba(205, 225, 248, 0.92) !important;
+  color: #d7e6f7 !important;
 }
 
 /* Gallery subtitle */
@@ -2103,11 +2103,11 @@ input:focus, textarea:focus {
 
 /* Footer highlight paragraph */
 .footer-highlight p {
-  color: rgba(185, 208, 235, 0.88);
+  color: #bfd3e6;
 }
 
 /* Sobrescritas finais de contraste */
 .hvac-area-card p { color: rgba(190,212,240,0.92) !important; }
 .hvac-cta p       { color: rgba(210,228,252,0.95) !important; }
 .hvac-mini-pill span { color: rgba(215,232,255,0.95) !important; }
-.hvac-mini-pill em   { color: rgba(175,200,235,0.80) !important; }
+.hvac-mini-pill em   { color: #bfd3e6 !important; }
