@@ -1,0 +1,21 @@
+Adicione aqui as imagens da seção HVAC Offshore.
+
+Arquivos esperados (formato .webp recomendado):
+  utas-modulos.webp        → UTAs em sala técnica           (400×300px)
+  chillers.webp            → Chiller industrial             (400×300px)
+  exaustao.webp            → Coifas em cozinha industrial   (400×300px)
+  offshore.webp            → Plataforma offshore            (400×300px)
+  sala-tecnica.webp        → Sala de máquinas HVAC          (900×340px)
+  01-utas.webp             → UTAs — card portfólio          (400×200px)
+  02-chillers.webp         → Chillers — card portfólio      (400×200px)
+  03-fan-coils.webp        → Fan coil instalado             (400×200px)
+  04-coifas.webp           → Coifas de inox em galley       (400×200px)
+  05-dampers.webp          → Damper corta-fogo              (400×200px)
+  06-filtros.webp          → Filtro / veneziana             (400×200px)
+  cta-plataforma.webp      → Plataforma offshore            (400×200px)
+  cta-sala-hvac.webp       → Sala técnica HVAC              (560×200px)
+  cta-camara-fria.webp     → Câmara fria industrial         (400×200px)
+
+Após adicionar as imagens, localize os comentários
+<!-- SUBSTITUIR: ... --> no arquivo hvac-offshore.html
+e no index.html, descomente as tags <img> correspondentes.

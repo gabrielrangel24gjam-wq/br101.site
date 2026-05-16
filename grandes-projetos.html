@@ -1,0 +1,2581 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="description" content="BR101 Grandes Projetos — Academia de Praças Públicas: estruturas metálicas e mobiliário urbano de alta performance para espaços públicos com resistência, segurança e impacto urbano."/>
+<meta property="og:title" content="BR101 | Grandes Projetos — Academia de Praças Públicas"/>
+<meta property="og:description" content="Estruturas metálicas e mobiliário urbano de alta performance para espaços públicos. Resistência, segurança, durabilidade e qualidade de vida para a população."/>
+<meta property="og:type" content="website"/>
+<meta name="theme-color" content="#0b1220"/>
+<title>BR101 | Grandes Projetos — Academia de Praças Públicas</title>
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=DM+Sans:wght@400;500;600;700&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+<style>
+/* ============================================================
+   BR101 — GRANDES PROJETOS
+   Design: Industrial-Técnico | Tipografia: Barlow Condensed + DM Sans
+   Paleta: Navy profundo + Laranja industrial + Aço
+============================================================ */
+
+:root {
+  --navy:        #0b1220;
+  --navy-mid:    #101928;
+  --navy-soft:   #162238;
+  --navy-card:   #1a2840;
+  --steel:       #c8d4e3;
+  --steel-dark:  #8898b0;
+  --orange:      #f4611a;
+  --orange-dark: #c94e10;
+  --orange-glow: rgba(244,97,26,0.18);
+  --cyan:        #56c7ff;
+  --blue:        #1687d9;
+  --white:       #ffffff;
+  --text-body:   #e8eff8;
+  --text-muted:  #96adc4;
+  --line:        rgba(200,212,227,0.12);
+  --ease:        cubic-bezier(0.22, 0.9, 0.24, 1);
+  --r-sm:        10px;
+  --r-md:        18px;
+  --r-lg:        24px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', 'Barlow', system-ui, sans-serif;
+  background: var(--navy);
+  color: #e0eaf5;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+
+/* ============================================================
+   LAYOUT UTILITIES
+============================================================ */
+.container {
+  width: min(1280px, calc(100% - 40px));
+  margin-inline: auto;
+}
+
+.section {
+  padding: 100px 0;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 18px;
+}
+
+.eyebrow::before {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 2px;
+  background: var(--orange);
+  flex-shrink: 0;
+}
+
+.eyebrow.steel {
+  color: rgba(210,228,248,0.95);
+}
+.eyebrow.steel::before {
+  background: var(--steel);
+}
+.eyebrow.cyan {
+  color: var(--cyan);
+}
+.eyebrow.cyan::before {
+  background: var(--cyan);
+}
+
+/* ============================================================
+   HEADER / NAV
+============================================================ */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 900;
+  background: rgba(11,18,32,0.95);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--line);
+}
+
+.header-top {
+  background: var(--orange);
+  padding: 8px 0;
+}
+
+.header-top-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.header-top-inner a {
+  color: #fff;
+  opacity: 0.9;
+  transition: opacity 0.2s;
+}
+.header-top-inner a:hover { opacity: 1; }
+
+.top-divider {
+  width: 1px;
+  height: 14px;
+  background: rgba(255,255,255,0.4);
+  margin: 0 12px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+  gap: 24px;
+}
+
+.logo img {
+  height: 44px;
+  width: auto;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.nav-links a {
+  color: var(--steel);
+  transition: color 0.2s;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--orange);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s var(--ease);
+}
+
+.nav-links a:hover { color: #fff; }
+.nav-links a:hover::after { transform: scaleX(1); }
+.nav-links a.active { color: var(--orange); }
+
+.nav-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  background: var(--orange);
+  color: #fff;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: var(--r-sm);
+  transition: background 0.2s, transform 0.2s;
+}
+
+.nav-cta:hover {
+  background: var(--orange-dark);
+  transform: translateY(-2px);
+}
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  width: 36px;
+  cursor: pointer;
+  background: none;
+  border: 1px solid rgba(200,212,227,0.2);
+  padding: 8px 7px;
+  border-radius: 8px;
+}
+
+.menu-toggle span {
+  display: block;
+  height: 2px;
+  background: var(--steel);
+  border-radius: 2px;
+  transition: transform 0.3s var(--ease), opacity 0.2s;
+}
+
+/* ============================================================
+   PAGE HERO — GRANDE PROJETO
+============================================================ */
+.page-hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+  padding-top: 110px;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 70% 30%, rgba(244,97,26,0.12), transparent 60%),
+    radial-gradient(ellipse 60% 40% at 10% 80%, rgba(22,135,217,0.1), transparent 50%),
+    linear-gradient(170deg, #08101e 0%, #0d1927 50%, #101f35 100%);
+}
+
+/* Blueprint grid overlay */
+.hero-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(200,212,227,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(200,212,227,0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* Diagonal accent stripe */
+.hero-bg::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(to bottom, var(--orange), transparent);
+  opacity: 0.6;
+}
+
+.hero-badge {
+  position: absolute;
+  top: 130px;
+  right: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 120px;
+  border: 2px solid var(--orange);
+  border-radius: 50%;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--orange);
+  text-align: center;
+  line-height: 1.2;
+  animation: rotate-badge 20s linear infinite;
+}
+
+@keyframes rotate-badge {
+  to { transform: rotate(360deg); }
+}
+
+.hero-badge-inner {
+  animation: rotate-badge-reverse 20s linear infinite;
+  text-align: center;
+}
+
+@keyframes rotate-badge-reverse {
+  to { transform: rotate(-360deg); }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 80px 0 100px;
+}
+
+.hero-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 40px;
+}
+
+.hero-breadcrumb a {
+  color: var(--text-muted);
+  transition: color 0.2s;
+}
+.hero-breadcrumb a:hover { color: var(--orange); }
+.hero-breadcrumb .sep { color: var(--orange); }
+
+.hero-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: rgba(244,97,26,0.15);
+  border: 1px solid rgba(244,97,26,0.3);
+  border-radius: 4px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 24px;
+}
+
+.hero-label::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: var(--orange);
+  border-radius: 50%;
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.7); }
+}
+
+.page-hero h1 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(3.5rem, 8vw, 7.5rem);
+  font-weight: 900;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--white);
+  max-width: 900px;
+  margin-bottom: 30px;
+}
+
+.page-hero h1 em {
+  font-style: normal;
+  color: var(--orange);
+}
+
+.hero-desc {
+  font-size: 1.15rem;
+  line-height: 1.75;
+  color: var(--steel);
+  max-width: 640px;
+  margin-bottom: 48px;
+}
+
+.hero-specs {
+  display: flex;
+  gap: 0;
+  margin-bottom: 48px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  overflow: hidden;
+  max-width: 680px;
+}
+
+.hero-spec {
+  flex: 1;
+  padding: 18px 24px;
+  border-right: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.hero-spec:last-child { border-right: none; }
+
+.hero-spec-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.hero-spec-value {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--white);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 30px;
+  background: var(--orange);
+  color: #fff;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: var(--r-sm);
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-primary:hover {
+  background: var(--orange-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 20px 40px rgba(244,97,26,0.3);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 30px;
+  border: 1px solid rgba(200,212,227,0.25);
+  color: var(--steel);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: var(--r-sm);
+  transition: border-color 0.2s, color 0.2s, transform 0.2s;
+}
+
+.btn-ghost:hover {
+  border-color: var(--orange);
+  color: var(--orange);
+  transform: translateY(-2px);
+}
+
+/* ============================================================
+   ABOUT PROJECT SECTION
+============================================================ */
+.about-project {
+  background:
+    radial-gradient(circle at 90% 50%, rgba(244,97,26,0.07), transparent 40%),
+    var(--navy-mid);
+  border-top: 1px solid var(--line);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.about-text h2 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(2.2rem, 4vw, 3.6rem);
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  line-height: 1.0;
+  color: var(--white);
+  margin-bottom: 24px;
+}
+
+.about-text p {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--text-body);
+  margin-bottom: 20px;
+}
+
+.about-text p:last-of-type { margin-bottom: 0; }
+
+.about-visual {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.stat-card {
+  background: var(--navy-card);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  padding: 28px 24px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s, transform 0.3s;
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--orange), var(--orange-dark));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s var(--ease);
+}
+
+.stat-card:hover {
+  border-color: rgba(244,97,26,0.3);
+  transform: translateY(-3px);
+}
+
+.stat-card:hover::before { transform: scaleX(1); }
+
+.stat-number {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 2.6rem;
+  font-weight: 900;
+  color: var(--orange);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.stat-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--steel-dark);
+}
+
+/* ============================================================
+   PILLARS — PILARES DO PROJETO
+============================================================ */
+.pillars {
+  background:
+    linear-gradient(170deg, #07101e 0%, #0d1927 60%, #131e30 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.pillars::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  pointer-events: none;
+}
+
+.pillars-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 64px;
+}
+
+.pillars-header h2 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 1.0;
+  color: var(--white);
+  margin-bottom: 20px;
+}
+
+.pillars-header p {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--steel);
+}
+
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  position: relative;
+  z-index: 1;
+}
+
+.pillar-card {
+  background: rgba(22, 34, 56, 0.6);
+  padding: 48px 36px;
+  border: 1px solid var(--line);
+  position: relative;
+  transition: background 0.3s;
+  cursor: default;
+}
+
+.pillar-card:hover {
+  background: rgba(30, 44, 68, 0.8);
+}
+
+.pillar-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--r-sm);
+  background: rgba(244,97,26,0.12);
+  border: 1px solid rgba(244,97,26,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 28px;
+  transition: background 0.3s, border-color 0.3s;
+}
+
+.pillar-card:hover .pillar-icon {
+  background: rgba(244,97,26,0.2);
+  border-color: rgba(244,97,26,0.5);
+}
+
+.pillar-num {
+  position: absolute;
+  top: 24px;
+  right: 28px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 3rem;
+  font-weight: 900;
+  color: rgba(200,212,227,0.06);
+  line-height: 1;
+  pointer-events: none;
+}
+
+.pillar-card h3 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.35rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--white);
+  margin-bottom: 14px;
+}
+
+.pillar-card p {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: var(--text-body);
+}
+
+/* ============================================================
+   SCOPE — ESCOPO TÉCNICO
+============================================================ */
+.scope {
+  background: var(--navy-mid);
+  border-top: 1px solid var(--line);
+}
+
+.scope-grid {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.scope-sticky {
+  position: sticky;
+  top: 100px;
+}
+
+.scope-sticky h2 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 1.0;
+  color: var(--white);
+  margin-bottom: 20px;
+}
+
+.scope-sticky p {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--text-body);
+  margin-bottom: 36px;
+}
+
+.scope-highlight {
+  background: rgba(244,97,26,0.08);
+  border: 1px solid rgba(244,97,26,0.2);
+  border-left: 4px solid var(--orange);
+  border-radius: 0 var(--r-sm) var(--r-sm) 0;
+  padding: 20px 24px;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--steel);
+  font-style: italic;
+}
+
+.items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.scope-item {
+  background: var(--navy-card);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  padding: 28px 32px;
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  gap: 20px;
+  align-items: start;
+  transition: border-color 0.3s, transform 0.3s;
+}
+
+.scope-item:hover {
+  border-color: rgba(244,97,26,0.25);
+  transform: translateX(6px);
+}
+
+.scope-item-icon {
+  width: 52px;
+  height: 52px;
+  background: rgba(244,97,26,0.1);
+  border: 1px solid rgba(244,97,26,0.2);
+  border-radius: var(--r-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+.scope-item-content h4 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--white);
+  margin-bottom: 6px;
+}
+
+.scope-item-content p {
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: var(--text-body);
+  margin: 0;
+}
+
+.scope-item-tag {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 3px 10px;
+  background: rgba(86,199,255,0.1);
+  border: 1px solid rgba(86,199,255,0.2);
+  border-radius: 4px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--cyan);
+}
+
+/* ============================================================
+   PROCESS — COMO EXECUTAMOS
+============================================================ */
+.process {
+  background:
+    radial-gradient(circle at 20% 50%, rgba(22,135,217,0.07), transparent 40%),
+    linear-gradient(180deg, #07101e, #0b1828);
+  position: relative;
+  overflow: hidden;
+}
+
+.process-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 72px;
+}
+
+.process-header h2 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 1.0;
+  color: var(--white);
+  margin-bottom: 18px;
+}
+
+.process-header p {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--steel);
+}
+
+.steps-track {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  position: relative;
+}
+
+.steps-track::before {
+  content: '';
+  position: absolute;
+  top: 36px;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--orange), transparent);
+  pointer-events: none;
+}
+
+.step-item {
+  padding: 0 20px;
+  text-align: center;
+  position: relative;
+}
+
+.step-circle {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  border: 2px solid rgba(244,97,26,0.4);
+  background: var(--navy-card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: var(--orange);
+  margin: 0 auto 24px;
+  position: relative;
+  z-index: 1;
+  transition: background 0.3s, border-color 0.3s, transform 0.3s;
+}
+
+.step-item:hover .step-circle {
+  background: rgba(244,97,26,0.15);
+  border-color: var(--orange);
+  transform: scale(1.08);
+}
+
+.step-item h4 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--white);
+  margin-bottom: 10px;
+}
+
+.step-item p {
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: var(--text-muted);
+}
+
+/* ============================================================
+   GALLERY — APLICAÇÕES VISUAIS
+============================================================ */
+.gallery {
+  background: var(--navy-mid);
+  border-top: 1px solid var(--line);
+}
+
+.gallery-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 48px;
+  gap: 24px;
+}
+
+.gallery-header h2 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 1.0;
+  color: var(--white);
+}
+
+.gallery-note {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  max-width: 300px;
+  text-align: right;
+  line-height: 1.6;
+}
+
+.gallery-mosaic {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 280px 280px;
+  gap: 12px;
+}
+
+.gallery-item {
+  border-radius: var(--r-md);
+  overflow: hidden;
+  position: relative;
+  background: var(--navy-card);
+  border: 1px solid var(--line);
+}
+
+.gallery-item:nth-child(1) { grid-column: span 7; grid-row: span 1; }
+.gallery-item:nth-child(2) { grid-column: span 5; grid-row: span 1; }
+.gallery-item:nth-child(3) { grid-column: span 4; grid-row: span 1; }
+.gallery-item:nth-child(4) { grid-column: span 8; grid-row: span 1; }
+
+.gallery-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background:
+    linear-gradient(135deg, rgba(22,34,56,0.8), rgba(16,26,44,0.9));
+  position: relative;
+  overflow: hidden;
+}
+
+.gallery-placeholder::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(200,212,227,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(200,212,227,0.04) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+.gallery-placeholder-icon {
+  font-size: 2rem;
+  opacity: 0.35;
+  position: relative;
+  z-index: 1;
+}
+
+.gallery-placeholder-text {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  position: relative;
+  z-index: 1;
+}
+
+.gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(11,18,32,0.8), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+  display: flex;
+  align-items: flex-end;
+  padding: 20px;
+}
+
+.gallery-item:hover .gallery-overlay { opacity: 1; }
+
+.gallery-overlay-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--white);
+}
+
+.gallery-real {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s var(--ease);
+}
+
+.gallery-item:hover .gallery-real { transform: scale(1.04); }
+
+/* ============================================================
+   DIFFERENTIATORS — DIFERENCIAIS TÉCNICOS
+============================================================ */
+.differentiators {
+  background: var(--navy);
+  border-top: 1px solid var(--line);
+}
+
+.diff-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.diff-copy h2 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 1.0;
+  color: var(--white);
+  margin-bottom: 20px;
+}
+
+.diff-copy p {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--text-body);
+  margin-bottom: 36px;
+}
+
+.diff-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  overflow: hidden;
+}
+
+.diff-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--line);
+  transition: background 0.2s;
+}
+
+.diff-item:last-child { border-bottom: none; }
+.diff-item:hover { background: rgba(255,255,255,0.03); }
+
+.diff-check {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(244,97,26,0.1);
+  border: 1px solid rgba(244,97,26,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--orange);
+  font-size: 0.85rem;
+}
+
+.diff-item-text {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--steel);
+  line-height: 1.5;
+}
+
+.diff-visual {
+  background: var(--navy-card);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  padding: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.diff-visual::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--orange), var(--orange-dark));
+}
+
+.tech-spec-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tech-spec-table tr {
+  border-bottom: 1px solid var(--line);
+}
+
+.tech-spec-table tr:last-child { border-bottom: none; }
+
+.tech-spec-table td {
+  padding: 14px 0;
+  font-size: 0.9rem;
+  vertical-align: middle;
+}
+
+.tech-spec-table td:first-child {
+  color: var(--text-muted);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  width: 40%;
+}
+
+.tech-spec-table td:last-child {
+  color: var(--white);
+  font-weight: 600;
+  text-align: right;
+}
+
+.tech-spec-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  background: rgba(244,97,26,0.12);
+  border: 1px solid rgba(244,97,26,0.25);
+  border-radius: 4px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--orange);
+}
+
+/* ============================================================
+   IMPACT — IMPACTO URBANO
+============================================================ */
+.impact {
+  background:
+    linear-gradient(135deg, #07101e 0%, #0d1927 50%, #101f35 100%);
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.impact::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(244,97,26,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(244,97,26,0.04) 1px, transparent 1px);
+  background-size: 80px 80px;
+}
+
+.impact-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.impact h2 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(2.5rem, 5vw, 5rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 0.95;
+  color: var(--white);
+  max-width: 900px;
+  margin: 0 auto 28px;
+}
+
+.impact h2 em {
+  font-style: normal;
+  color: var(--orange);
+}
+
+.impact-desc {
+  font-size: 1.1rem;
+  line-height: 1.75;
+  color: var(--steel);
+  max-width: 640px;
+  margin: 0 auto 56px;
+}
+
+.impact-numbers {
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  flex-wrap: wrap;
+  margin-bottom: 56px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  max-width: 900px;
+  margin-inline: auto;
+  margin-bottom: 56px;
+}
+
+.impact-num {
+  flex: 1;
+  min-width: 160px;
+  padding: 32px 24px;
+  border-right: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.impact-num:last-child { border-right: none; }
+
+.impact-num-val {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 2.8rem;
+  font-weight: 900;
+  color: var(--orange);
+  line-height: 1;
+}
+
+.impact-num-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* ============================================================
+   PROJECTS CTA — OUTROS PROJETOS
+============================================================ */
+.other-projects {
+  background: var(--navy-mid);
+  border-top: 1px solid var(--line);
+}
+
+.other-projects h2 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 1.0;
+  color: var(--white);
+  margin-bottom: 40px;
+}
+
+.projects-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.project-teaser {
+  background: var(--navy-card);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  padding: 32px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s, transform 0.3s;
+  cursor: default;
+}
+
+.project-teaser.active {
+  border-color: rgba(244,97,26,0.4);
+}
+
+.project-teaser:hover:not(.coming-soon) {
+  border-color: rgba(244,97,26,0.3);
+  transform: translateY(-4px);
+}
+
+.project-teaser::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--orange), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.project-teaser.active::before { opacity: 1; }
+.project-teaser:hover::before { opacity: 0.5; }
+
+.project-teaser-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.project-teaser-badge.current {
+  background: rgba(244,97,26,0.15);
+  border: 1px solid rgba(244,97,26,0.3);
+  color: var(--orange);
+}
+
+.project-teaser-badge.soon {
+  background: rgba(120,130,150,0.15);
+  border: 1px solid rgba(120,130,150,0.2);
+  color: var(--text-muted);
+}
+
+.project-teaser h3 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--white);
+  margin-bottom: 12px;
+}
+
+.project-teaser p {
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: var(--text-body);
+}
+
+.coming-soon-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(11,18,32,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.coming-soon-tag {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  border: 1px solid rgba(120,130,150,0.3);
+  padding: 8px 16px;
+  border-radius: 4px;
+}
+
+/* ============================================================
+   CONTACT CTA
+============================================================ */
+.contact-cta {
+  background: var(--orange);
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-cta::before {
+  content: '';
+  position: absolute;
+  top: -60%;
+  right: -10%;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.06);
+  pointer-events: none;
+}
+
+.contact-cta::after {
+  content: '';
+  position: absolute;
+  bottom: -40%;
+  left: -5%;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.08);
+  pointer-events: none;
+}
+
+.cta-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  padding: 72px 0;
+}
+
+.cta-text h2 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(2.2rem, 4vw, 3.8rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 0.95;
+  color: #fff;
+  margin-bottom: 16px;
+}
+
+.cta-text p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.85);
+  max-width: 500px;
+}
+
+.cta-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.btn-white {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 36px;
+  background: #fff;
+  color: var(--orange);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: var(--r-sm);
+  white-space: nowrap;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-white:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.btn-outline-white {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 32px;
+  border: 2px solid rgba(255,255,255,0.5);
+  color: #fff;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: var(--r-sm);
+  white-space: nowrap;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.btn-outline-white:hover {
+  border-color: #fff;
+  background: rgba(255,255,255,0.1);
+}
+
+/* ============================================================
+   FOOTER
+============================================================ */
+.footer {
+  background: var(--navy-dark, #07101e);
+  border-top: 1px solid var(--line);
+}
+
+.footer-main {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 48px;
+  padding: 64px 0 48px;
+}
+
+.footer-brand img {
+  height: 44px;
+  width: auto;
+  margin-bottom: 20px;
+}
+
+.footer-brand p {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+  max-width: 320px;
+}
+
+.footer-col h4 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--steel);
+  margin-bottom: 20px;
+}
+
+.footer-col a,
+.footer-col span {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+  transition: color 0.2s;
+}
+
+.footer-col a:hover { color: var(--orange); }
+
+.footer-bottom {
+  border-top: 1px solid var(--line);
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.footer-bottom p {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.footer-bottom a {
+  color: var(--orange);
+  font-size: 0.82rem;
+  transition: opacity 0.2s;
+}
+
+.footer-bottom a:hover { opacity: 0.8; }
+
+.back-top {
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.back-top:hover {
+  border-color: var(--orange);
+  color: var(--orange);
+}
+
+/* ============================================================
+   FLOATING WHATSAPP
+============================================================ */
+.floating-wa {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 999;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 13px 18px;
+  background: linear-gradient(135deg, #0ea55b, #12c878);
+  color: #fff;
+  border-radius: 999px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  box-shadow: 0 18px 42px rgba(0,0,0,0.28);
+  transition: transform 0.2s, filter 0.2s;
+}
+
+.floating-wa:hover {
+  transform: translateY(-3px);
+  filter: brightness(1.07);
+}
+
+/* ============================================================
+   ANIMATIONS
+============================================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-28px);
+  transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+}
+
+.reveal-left.visible {
+  opacity: 1;
+  transform: none;
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(28px);
+  transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+}
+
+.reveal-right.visible {
+  opacity: 1;
+  transform: none;
+}
+
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+.delay-4 { transition-delay: 0.4s; }
+.delay-5 { transition-delay: 0.5s; }
+
+/* ============================================================
+   RESPONSIVE
+============================================================ */
+@media (max-width: 1024px) {
+  .about-grid { grid-template-columns: 1fr; gap: 48px; }
+  .scope-grid { grid-template-columns: 1fr; gap: 48px; }
+  .scope-sticky { position: static; }
+  .diff-grid { grid-template-columns: 1fr; gap: 48px; }
+  .pillars-grid { grid-template-columns: 1fr 1fr; }
+  .steps-track { grid-template-columns: 1fr 1fr; gap: 40px; }
+  .steps-track::before { display: none; }
+  .gallery-mosaic {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+  }
+  .gallery-item:nth-child(1),
+  .gallery-item:nth-child(2),
+  .gallery-item:nth-child(3),
+  .gallery-item:nth-child(4) {
+    grid-column: span 1;
+    grid-row: span 1;
+    height: 220px;
+  }
+  .cta-inner { flex-direction: column; text-align: center; }
+  .cta-actions { align-items: center; }
+  .footer-main { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 768px) {
+  .section { padding: 72px 0; }
+  .hero-badge { display: none; }
+  .page-hero h1 { font-size: clamp(2.8rem, 10vw, 5rem); }
+  .hero-specs { flex-direction: column; }
+  .hero-spec { border-right: none; border-bottom: 1px solid var(--line); }
+  .hero-spec:last-child { border-bottom: none; }
+  .pillars-grid { grid-template-columns: 1fr; }
+  .steps-track { grid-template-columns: 1fr; }
+  .projects-list { grid-template-columns: 1fr; }
+  .stats-grid { grid-template-columns: 1fr 1fr; }
+  .impact-numbers { flex-direction: column; }
+  .impact-num { border-right: none; border-bottom: 1px solid var(--line); }
+  .impact-num:last-child { border-bottom: none; }
+  .gallery-header { flex-direction: column; align-items: flex-start; }
+  .gallery-note { text-align: left; max-width: 100%; }
+  .footer-main { grid-template-columns: 1fr; gap: 32px; }
+  .header-top-inner { flex-direction: column; gap: 4px; font-size: 0.72rem; }
+  .nav-links { display: none; }
+  .menu-toggle { display: flex; }
+  .nav-links.open {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(11,18,32,0.98);
+    backdrop-filter: blur(20px);
+    justify-content: center;
+    align-items: center;
+    gap: 28px;
+    z-index: 800;
+    font-size: 1.4rem;
+  }
+  .footer-bottom { flex-direction: column; text-align: center; }
+  .floating-wa span { display: none; }
+  .hero-actions { flex-direction: column; }
+  .btn-primary, .btn-ghost { width: 100%; justify-content: center; }
+}
+
+@media (max-width: 480px) {
+  .gallery-mosaic { grid-template-columns: 1fr; }
+  .gallery-item:nth-child(1),
+  .gallery-item:nth-child(2),
+  .gallery-item:nth-child(3),
+  .gallery-item:nth-child(4) {
+    grid-column: span 1;
+    height: 200px;
+  }
+  .stats-grid { grid-template-columns: 1fr; }
+}
+
+/* Contraste melhorado — Grandes Projetos */
+.about-text p         { color: #c8daf0 !important; }
+.scope-sticky p       { color: #c4d6ec !important; }
+.scope-highlight      { color: #b8d0ea !important; font-style: normal; }
+.scope-item-content p { color: #c0d4ec !important; }
+.step-item p          { color: #9fb8d4 !important; }
+.pillar-card p        { color: #c0d4ec !important; }
+.diff-copy p          { color: #c4d6ec !important; }
+.diff-item-text       { color: #cde0f5 !important; }
+.tech-spec-table td:first-child { color: #96adc4 !important; }
+.tech-spec-table td:last-child  { color: #e0eaf5 !important; }
+.impact-desc          { color: #c8dcf5 !important; }
+.impact-num-label     { color: #96adc4 !important; }
+.project-teaser p     { color: #c0d4ec !important; }
+.gallery-note         { color: #96adc4 !important; }
+.cta-text p           { color: rgba(255,255,255,0.90) !important; }
+.footer-brand p       { color: rgba(185,208,235,0.90) !important; }
+.footer-col a, .footer-col span { color: rgba(188,210,238,0.90) !important; }
+.footer-bottom p      { color: rgba(180,205,235,0.85) !important; }
+.hero-desc            { color: rgba(215,230,252,0.96) !important; }
+.hero-spec-label      { color: #96adc4 !important; }
+.hero-spec-value      { color: #e8eff8 !important; }
+.process-header p     { color: #c4d6ec !important; }
+.pillars-header p     { color: #c4d6ec !important; }
+.other-projects h2    { color: #e8eff8 !important; }
+</style>
+</head>
+
+<body>
+
+<!-- ============================================================
+   HEADER
+============================================================ -->
+<header class="site-header" id="home">
+  <div class="header-top">
+    <div class="container header-top-inner">
+      <span>Engenharia • Fabricação • Montagem técnica</span>
+      <div style="display:flex;align-items:center;">
+        <a href="tel:+5521983038369">+55 21 98303-8369</a>
+        <span class="top-divider"></span>
+        <a href="mailto:comercial@br101.ind.br">comercial@br101.ind.br</a>
+      </div>
+    </div>
+  </div>
+
+  <nav class="nav container">
+    <a class="logo" href="index.html" aria-label="BR101 — Página inicial">
+      <img src="assets/img-webp/logo-br101-branca.webp" alt="BR101 Soluções de Engenharia" height="512" width="512"/>
+    </a>
+
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="index.html#sobre">Sobre</a>
+      <a href="index.html#produtos">Soluções</a>
+      <a href="index.html#portfolio">Portfólio</a>
+      <a href="grandes-projetos.html" class="active">Grandes Projetos</a>
+      <a href="index.html#contato">Contato</a>
+    </div>
+
+    <a class="nav-cta" href="https://wa.me/5521983038369?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20BR101%20e%20gostaria%20de%20saber%20mais%20sobre%20o%20projeto%20Academia%20de%20Pra%C3%A7as%20P%C3%BAblicas." target="_blank" rel="noopener noreferrer">
+      <i class="fa-brands fa-whatsapp"></i>
+      Solicitar orçamento
+    </a>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false" type="button">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+</header>
+
+
+<!-- ============================================================
+   PAGE HERO
+============================================================ -->
+<section class="page-hero">
+  <div class="hero-bg" aria-hidden="true"></div>
+
+  <div class="hero-badge" aria-hidden="true">
+    <div class="hero-badge-inner">Projeto<br>Destaque<br>BR101</div>
+  </div>
+
+  <div class="container hero-content">
+    <div class="hero-breadcrumb reveal">
+      <a href="index.html">BR101</a>
+      <span class="sep">›</span>
+      <a href="grandes-projetos.html">Grandes Projetos</a>
+      <span class="sep">›</span>
+      <span style="color:var(--steel);">Academia de Praças Públicas</span>
+    </div>
+
+    <div class="hero-label reveal delay-1">
+      <span>Projeto em destaque · 2025–2026</span>
+    </div>
+
+    <h1 class="reveal delay-2">
+      Academia<br>de <em>Praças</em><br>Públicas
+    </h1>
+
+    <p class="hero-desc reveal delay-3">
+      Estruturas metálicas e mobiliário urbano de alta performance para espaços públicos. 
+      Engenharia aplicada à vida das pessoas — resistência, segurança, durabilidade e qualidade de vida 
+      como premissas de projeto.
+    </p>
+
+    <div class="hero-specs reveal delay-4">
+      <div class="hero-spec">
+        <span class="hero-spec-label">Segmento</span>
+        <span class="hero-spec-value">Mobiliário Urbano</span>
+      </div>
+      <div class="hero-spec">
+        <span class="hero-spec-label">Estrutura</span>
+        <span class="hero-spec-value">Aço Galvanizado</span>
+      </div>
+      <div class="hero-spec">
+        <span class="hero-spec-label">Aplicação</span>
+        <span class="hero-spec-value">Praças Públicas</span>
+      </div>
+      <div class="hero-spec">
+        <span class="hero-spec-label">Entrega</span>
+        <span class="hero-spec-value">Instalado e Funcional</span>
+      </div>
+    </div>
+
+    <div class="hero-actions reveal delay-5">
+      <a class="btn-primary" href="https://wa.me/5521983038369?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20projeto%20Academia%20de%20Pra%C3%A7as%20P%C3%BAblicas%20da%20BR101." target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-whatsapp"></i>
+        Solicitar proposta técnica
+      </a>
+      <a class="btn-ghost" href="#sobre-projeto">
+        <i class="fa-solid fa-arrow-down"></i>
+        Conhecer o projeto
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+   ABOUT PROJECT
+============================================================ -->
+<section class="section about-project" id="sobre-projeto">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text reveal-left">
+        <p class="eyebrow">O Projeto</p>
+        <h2>Engenharia que transforma espaços urbanos em patrimônio da cidade</h2>
+        <p>
+          A <strong>Academia de Praças Públicas</strong> é um conceito de intervenção urbana desenvolvido 
+          pela BR101 para atender prefeituras, concessionárias de espaços públicos e gestoras de 
+          equipamentos urbanos que precisam entregar qualidade de vida real para a população.
+        </p>
+        <p>
+          Cada equipamento é projetado com critérios rigorosos de engenharia: dimensionamento estrutural 
+          para uso intensivo, proteção contra corrosão, acabamentos resistentes ao vandalismo e à 
+          intempérie, e instalação técnica que garante segurança desde o primeiro dia de uso.
+        </p>
+        <p>
+          Não fabricamos móveis. <strong>Fabricamos infraestrutura urbana</strong> com a precisão 
+          de quem entende que praças públicas são ambientes de uso coletivo diário, sujeitos a 
+          cargas extremas, variação climática e desgaste acelerado.
+        </p>
+      </div>
+
+      <div class="about-visual reveal-right">
+        <div class="stats-grid">
+          <div class="stat-card reveal delay-1">
+            <div class="stat-number">20+</div>
+            <div class="stat-label">Anos de experiência em estruturas metálicas</div>
+          </div>
+          <div class="stat-card reveal delay-2">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Fabricação sob medida para cada projeto</div>
+          </div>
+          <div class="stat-card reveal delay-3">
+            <div class="stat-number">NBR</div>
+            <div class="stat-label">Normas técnicas brasileiras aplicadas</div>
+          </div>
+          <div class="stat-card reveal delay-4">
+            <div class="stat-number">RJ</div>
+            <div class="stat-label">Fábrica própria em Duque de Caxias</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+   PILLARS
+============================================================ -->
+<section class="section pillars" id="pilares">
+  <div class="container">
+    <div class="pillars-header reveal">
+      <p class="eyebrow" style="justify-content:center;">Pilares do Projeto</p>
+      <h2>Cinco premissas que definem cada equipamento entregue</h2>
+      <p>
+        Todo produto da Academia de Praças Públicas nasce da intersecção entre engenharia de estruturas, 
+        design funcional e impacto urbano. Estes são os pilares inegociáveis.
+      </p>
+    </div>
+
+    <div class="pillars-grid">
+      <div class="pillar-card reveal delay-1">
+        <span class="pillar-num">01</span>
+        <div class="pillar-icon">🏗️</div>
+        <h3>Resistência Estrutural</h3>
+        <p>
+          Estruturas calculadas para suportar cargas dinâmicas intensas com coeficientes de segurança 
+          acima do mínimo normativo. Aço com espessura adequada, soldas certificadas e 
+          geometria otimizada para distribuição de esforços.
+        </p>
+      </div>
+
+      <div class="pillar-card reveal delay-2">
+        <span class="pillar-num">02</span>
+        <div class="pillar-icon">🛡️</div>
+        <h3>Segurança do Usuário</h3>
+        <p>
+          Nenhuma aresta exposta, nenhum ponto de aprisionamento, nenhum risco de tombamento. 
+          Cada equipamento segue parâmetros de ergonomia e segurança para uso público, 
+          incluindo acessibilidade e adequação para todas as faixas etárias.
+        </p>
+      </div>
+
+      <div class="pillar-card reveal delay-3">
+        <span class="pillar-num">03</span>
+        <div class="pillar-icon">⏱️</div>
+        <h3>Durabilidade de Longo Prazo</h3>
+        <p>
+          Tratamentos anticorrosivos de alta performance — galvanização a fogo, pintura epóxi 
+          e revestimentos especializados — que garantem vida útil estendida mesmo em ambientes 
+          úmidos, costeiros ou de alta exposição UV.
+        </p>
+      </div>
+
+      <div class="pillar-card reveal delay-4">
+        <span class="pillar-num">04</span>
+        <div class="pillar-icon">🏙️</div>
+        <h3>Impacto Urbano Positivo</h3>
+        <p>
+          Equipamentos que valorizam o espaço público visualmente, estimulam a permanência das 
+          pessoas, reduzem a sensação de abandono urbano e contribuem para a identidade 
+          e orgulho dos bairros e comunidades atendidas.
+        </p>
+      </div>
+
+      <div class="pillar-card reveal delay-5">
+        <span class="pillar-num">05</span>
+        <div class="pillar-icon">❤️</div>
+        <h3>Qualidade de Vida Real</h3>
+        <p>
+          Praças equipadas com estruturas funcionais aumentam a prática de atividade física, 
+          o convívio social e o uso saudável do tempo livre. Cada instalação é uma 
+          intervenção direta na saúde e bem-estar da população local.
+        </p>
+      </div>
+
+      <div class="pillar-card reveal delay-3" style="background:rgba(244,97,26,0.06);border-color:rgba(244,97,26,0.2);">
+        <span class="pillar-num" style="color:rgba(244,97,26,0.12);">BR</span>
+        <div class="pillar-icon" style="background:rgba(244,97,26,0.15);border-color:rgba(244,97,26,0.35);">⚙️</div>
+        <h3>Entrega Completa</h3>
+        <p>
+          Da concepção à instalação. A BR101 gerencia o projeto técnico, a fabricação, 
+          o transporte e a montagem, entregando o equipamento pronto para uso — sem que 
+          o cliente precise coordenar múltiplos fornecedores.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+   SCOPE — PRODUTOS / EQUIPAMENTOS
+============================================================ -->
+<section class="section scope" id="escopo">
+  <div class="container">
+    <div class="scope-grid">
+      <div class="scope-sticky reveal-left">
+        <p class="eyebrow steel">Escopo de Fornecimento</p>
+        <h2>Linha completa de equipamentos para praças públicas</h2>
+        <p>
+          A Academia de Praças Públicas abrange um portfólio integrado de equipamentos 
+          metálicos que transforma uma praça comum em um espaço público completo, 
+          funcional e atrativo para toda a comunidade.
+        </p>
+        <div class="scope-highlight">
+          "Cada peça é desenvolvida para resistir ao uso diário intenso de uma praça pública 
+          por 10, 15, 20 anos — sem comprometer a segurança ou a estética."
+        </div>
+      </div>
+
+      <div class="items-list">
+        <div class="scope-item reveal delay-1">
+          <div class="scope-item-icon">🏋️</div>
+          <div class="scope-item-content">
+            <h4>Academia ao Ar Livre</h4>
+            <p>
+              Conjunto completo de aparelhos de ginástica urbana em aço galvanizado: 
+              rotador de cintura, pressão de pernas, remada, bicicleta ergométrica, 
+              alongamento e mais. Todos com mancais vedados e sem necessidade de lubrificação.
+            </p>
+            <span class="scope-item-tag">Aptidão física</span>
+          </div>
+        </div>
+
+        <div class="scope-item reveal delay-2">
+          <div class="scope-item-icon">🌳</div>
+          <div class="scope-item-content">
+            <h4>Estruturas de Sombreamento</h4>
+            <p>
+              Pergolados e sombreadores metálicos com cobertura policarbonato ou tela sombrite, 
+              que criam ambientes confortáveis para descanso e atividade, mesmo sob 
+              sol intenso. Design modular e instalação âncorificada no concreto.
+            </p>
+            <span class="scope-item-tag">Conforto térmico</span>
+          </div>
+        </div>
+
+        <div class="scope-item reveal delay-3">
+          <div class="scope-item-icon">🪑</div>
+          <div class="scope-item-content">
+            <h4>Bancos, Mesas e Parklets</h4>
+            <p>
+              Mobiliário urbano em aço com assento e encosto em madeira tratada ou fibra 
+              sintética. Mesas com tampo robusto para convivência. Parklets modulares 
+              para criação de zonas de socialização e permanência.
+            </p>
+            <span class="scope-item-tag">Convivência urbana</span>
+          </div>
+        </div>
+
+        <div class="scope-item reveal delay-4">
+          <div class="scope-item-icon">🚲</div>
+          <div class="scope-item-content">
+            <h4>Paraciclos e Bicicletários</h4>
+            <p>
+              Estruturas de ancoragem e guarda de bicicletas em aço chato com tratamento 
+              anticorrosivo. Modelos verticais e horizontais para otimização de espaço. 
+              Estimulam a mobilidade urbana sustentável.
+            </p>
+            <span class="scope-item-tag">Mobilidade</span>
+          </div>
+        </div>
+
+        <div class="scope-item reveal delay-5">
+          <div class="scope-item-icon">🎡</div>
+          <div class="scope-item-content">
+            <h4>Equipamentos Infantis e de Lazer</h4>
+            <p>
+              Brinquedos e equipamentos recreativos em aço com revestimento especial: 
+              carrosséis, balanços estruturais, tablados de lazer, mesas de soccer e 
+              pebolim. Seguranças, robustos e pensados para uso coletivo intensivo.
+            </p>
+            <span class="scope-item-tag">Recreação</span>
+          </div>
+        </div>
+
+        <div class="scope-item reveal delay-1">
+          <div class="scope-item-icon">🗑️</div>
+          <div class="scope-item-content">
+            <h4>Coletores de Resíduos e Lixeiras</h4>
+            <p>
+              Lixeiras metálicas com abertura na lateral e fundo removível para higienização. 
+              Modelos simples, duplos (orgânico/seco) e triplos para coleta seletiva. 
+              Acabamento anticorrosão com pintura eletrostática de alta durabilidade.
+            </p>
+            <span class="scope-item-tag">Saneamento</span>
+          </div>
+        </div>
+
+        <div class="scope-item reveal delay-2">
+          <div class="scope-item-icon">🚧</div>
+          <div class="scope-item-content">
+            <h4>Grades, Gradis e Cercamentos</h4>
+            <p>
+              Estruturas de delimitação e proteção de perímetros, canteiros, árvores e 
+              áreas de acesso controlado. Fabricadas em perfis metálicos com 
+              galvanização ou pintura especial. Combina funcionalidade e estética urbana.
+            </p>
+            <span class="scope-item-tag">Organização espacial</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+   PROCESS
+============================================================ -->
+<section class="section process" id="processo">
+  <div class="container">
+    <div class="process-header reveal">
+      <p class="eyebrow cyan" style="justify-content:center;">Método BR101</p>
+      <h2>Da necessidade ao equipamento instalado</h2>
+      <p>
+        Um processo claro, com etapas definidas, que garante alinhamento técnico e comercial 
+        em cada fase — sem surpresas no prazo ou no resultado final.
+      </p>
+    </div>
+
+    <div class="steps-track">
+      <div class="step-item reveal delay-1">
+        <div class="step-circle">01</div>
+        <h4>Levantamento Técnico</h4>
+        <p>Análise do espaço, volume de uso, padrões estéticos e requisitos normativos do projeto.</p>
+      </div>
+      <div class="step-item reveal delay-2">
+        <div class="step-circle">02</div>
+        <h4>Especificação e Proposta</h4>
+        <p>Definição dos equipamentos, materiais, tratamentos e quantidades. Proposta técnico-comercial detalhada.</p>
+      </div>
+      <div class="step-item reveal delay-3">
+        <div class="step-circle">03</div>
+        <h4>Fabricação Controlada</h4>
+        <p>Produção em fábrica própria com controle de qualidade em solda, tratamento e acabamento.</p>
+      </div>
+      <div class="step-item reveal delay-4">
+        <div class="step-circle">04</div>
+        <h4>Instalação e Entrega</h4>
+        <p>Montagem técnica no local, ancoragem, alinhamento e entrega com a praça pronta para uso.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+   GALLERY
+============================================================ -->
+<section class="section gallery" id="galeria">
+  <div class="container">
+    <div class="gallery-header reveal">
+      <div>
+        <p class="eyebrow">Portfólio Aplicado</p>
+        <h2>Equipamentos em uso real</h2>
+      </div>
+      <p class="gallery-note">
+        Projetos fabricados e instalados pela BR101 em espaços públicos e áreas de convivência, 
+        com resistência e acabamento comprovados em campo.
+      </p>
+    </div>
+
+    <div class="gallery-mosaic">
+      <div class="gallery-item reveal delay-1">
+        <img src="assets/img-webp/playground.webp" alt="Equipamentos de lazer e integração BR101" class="gallery-real"/>
+        <div class="gallery-overlay">
+          <span class="gallery-overlay-label">Área de lazer integrada</span>
+        </div>
+      </div>
+      <div class="gallery-item reveal delay-2">
+        <img src="assets/img-webp/parklets.webp" alt="Parklets metálicos BR101" class="gallery-real"/>
+        <div class="gallery-overlay">
+          <span class="gallery-overlay-label">Parklets de convivência</span>
+        </div>
+      </div>
+      <div class="gallery-item reveal delay-3">
+        <img src="assets/img-webp/paraciclo.webp" alt="Paraciclos BR101" class="gallery-real"/>
+        <div class="gallery-overlay">
+          <span class="gallery-overlay-label">Paraciclos — mobilidade urbana</span>
+        </div>
+      </div>
+      <div class="gallery-item reveal delay-4">
+        <img src="assets/img-webp/bicicletario.webp" alt="Bicicletário metálico BR101" class="gallery-real"/>
+        <div class="gallery-overlay">
+          <span class="gallery-overlay-label">Bicicletário estrutural</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+   DIFFERENTIATORS
+============================================================ -->
+<section class="section differentiators" id="diferenciais">
+  <div class="container">
+    <div class="diff-grid">
+      <div class="diff-copy reveal-left">
+        <p class="eyebrow">Por que a BR101</p>
+        <h2>Fabricação própria. Instalação técnica. Resultado garantido.</h2>
+        <p>
+          A diferença entre um projeto bem-sucedido e um equipamento subutilizado 
+          está no detalhe técnico de quem fabrica e instala. A BR101 controla 
+          todo o processo — do aço bruto à peça instalada.
+        </p>
+
+        <div class="diff-list">
+          <div class="diff-item">
+            <div class="diff-check"><i class="fa-solid fa-check"></i></div>
+            <span class="diff-item-text">Fábrica própria em Duque de Caxias — sem terceirização da produção</span>
+          </div>
+          <div class="diff-item">
+            <div class="diff-check"><i class="fa-solid fa-check"></i></div>
+            <span class="diff-item-text">Equipe técnica de montagem especializada em espaços públicos</span>
+          </div>
+          <div class="diff-item">
+            <div class="diff-check"><i class="fa-solid fa-check"></i></div>
+            <span class="diff-item-text">Galvanização a fogo, pintura epóxi e acabamentos técnicos de alta durabilidade</span>
+          </div>
+          <div class="diff-item">
+            <div class="diff-check"><i class="fa-solid fa-check"></i></div>
+            <span class="diff-item-text">Projetos com mais de 20 anos de experiência acumulada</span>
+          </div>
+          <div class="diff-item">
+            <div class="diff-check"><i class="fa-solid fa-check"></i></div>
+            <span class="diff-item-text">Atendimento para prefeituras, construtoras e gestoras públicas</span>
+          </div>
+          <div class="diff-item">
+            <div class="diff-check"><i class="fa-solid fa-check"></i></div>
+            <span class="diff-item-text">Fabricação sob medida para qualquer especificação ou padrão estético</span>
+          </div>
+          <div class="diff-item">
+            <div class="diff-check"><i class="fa-solid fa-check"></i></div>
+            <span class="diff-item-text">Documentação técnica e laudos disponíveis para licitações públicas</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="diff-visual reveal-right delay-2">
+        <div style="margin-bottom:24px;">
+          <p class="eyebrow steel">Especificação técnica base</p>
+        </div>
+        <table class="tech-spec-table">
+          <tr>
+            <td>Material principal</td>
+            <td><span class="tech-spec-badge">Aço SAE 1020 / 1045</span></td>
+          </tr>
+          <tr>
+            <td>Proteção anticorrosão</td>
+            <td>Galvanização a fogo ou Zincado</td>
+          </tr>
+          <tr>
+            <td>Acabamento</td>
+            <td>Pintura epóxi poliuretânica</td>
+          </tr>
+          <tr>
+            <td>Ancoragem</td>
+            <td>Fixação em concreto armado</td>
+          </tr>
+          <tr>
+            <td>Solda</td>
+            <td>MIG / TIG certificado</td>
+          </tr>
+          <tr>
+            <td>Normas</td>
+            <td>NBR 6118 / NBR 14718</td>
+          </tr>
+          <tr>
+            <td>Prazo médio fabricação</td>
+            <td>15 a 30 dias úteis</td>
+          </tr>
+          <tr>
+            <td>Garantia estrutural</td>
+            <td>Sob consulta técnica</td>
+          </tr>
+          <tr>
+            <td>Origem</td>
+            <td>100% fabricado no Brasil</td>
+          </tr>
+        </table>
+
+        <div style="margin-top:32px;padding-top:24px;border-top:1px solid var(--line);">
+          <p style="font-size:0.85rem;line-height:1.7;color:var(--text-muted);margin:0;">
+            Especificações técnicas variam conforme o projeto. A BR101 elabora memorial 
+            descritivo completo para cada fornecimento, incluindo detalhamento de materiais, 
+            tratamentos e método de instalação.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+   IMPACT
+============================================================ -->
+<section class="section impact">
+  <div class="container impact-inner">
+    <p class="eyebrow" style="justify-content:center;">Impacto Social e Urbano</p>
+    <h2>
+      Praças equipadas mudam<br>a <em>rotina</em> das cidades
+    </h2>
+    <p class="impact-desc">
+      Investir em infraestrutura urbana de qualidade é uma das ações com maior retorno 
+      social por real investido. Espaços públicos bem equipados geram saúde, reduzem 
+      custos com doenças crônicas e fortalecem o tecido comunitário.
+    </p>
+
+    <div class="impact-numbers reveal">
+      <div class="impact-num">
+        <div class="impact-num-val">+45%</div>
+        <div class="impact-num-label">Aumento de uso do espaço público após instalação de equipamentos</div>
+      </div>
+      <div class="impact-num">
+        <div class="impact-num-val">3x</div>
+        <div class="impact-num-label">Maior tempo de permanência em praças com academia ao ar livre</div>
+      </div>
+      <div class="impact-num">
+        <div class="impact-num-val">+20 anos</div>
+        <div class="impact-num-label">Vida útil estimada com manutenção periódica e materiais corretos</div>
+      </div>
+    </div>
+
+    <div class="hero-actions" style="justify-content:center;" class="reveal">
+      <a class="btn-primary" href="https://wa.me/5521983038369?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20o%20projeto%20Academia%20de%20Pra%C3%A7as%20P%C3%BAblicas." target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-whatsapp"></i>
+        Solicitar visita técnica
+      </a>
+      <a class="btn-ghost" href="index.html#contato">
+        <i class="fa-regular fa-envelope"></i>
+        Enviar necessidade por e-mail
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+   OUTROS PROJETOS
+============================================================ -->
+<section class="section other-projects">
+  <div class="container">
+    <p class="eyebrow reveal">Grandes Projetos</p>
+    <h2 class="reveal delay-1">Explore os projetos da BR101</h2>
+
+    <div class="projects-list">
+      <div class="project-teaser active reveal delay-1">
+        <div class="project-teaser-badge current">Em exibição</div>
+        <h3>Academia de Praças Públicas</h3>
+        <p>
+          Estruturas metálicas e mobiliário urbano de alta performance para espaços públicos. 
+          Resistência, segurança e qualidade de vida para a população.
+        </p>
+      </div>
+
+      <div class="project-teaser coming-soon reveal delay-2">
+        <div class="project-teaser-badge soon">Em breve</div>
+        <h3>Integração Industrial</h3>
+        <p>
+          Projetos de integração de ambientes industriais e corporativos com estruturas 
+          metálicas, mezaninos, passarelas e sistemas de organização de espaço.
+        </p>
+        <div class="coming-soon-overlay">
+          <span class="coming-soon-tag">Em breve</span>
+        </div>
+      </div>
+
+      <div class="project-teaser coming-soon reveal delay-3">
+        <div class="project-teaser-badge soon">Em breve</div>
+        <h3>Mobilidade Urbana</h3>
+        <p>
+          Infraestrutura metálica para ciclovias, pontos de ônibus, passarelas 
+          urbanas e sistemas de mobilidade ativa em ambientes públicos e privados.
+        </p>
+        <div class="coming-soon-overlay">
+          <span class="coming-soon-tag">Em breve</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+   CONTACT CTA
+============================================================ -->
+<section class="contact-cta">
+  <div class="container">
+    <div class="cta-inner">
+      <div class="cta-text reveal-left">
+        <h2>
+          Seu projeto de<br>praça pública<br>começa aqui.
+        </h2>
+        <p>
+          A BR101 atende prefeituras, construtoras, concessionárias de espaços públicos 
+          e gestores de infraestrutura urbana em todo o estado do Rio de Janeiro. 
+          Envie sua necessidade e receba uma orientação técnica gratuita.
+        </p>
+      </div>
+
+      <div class="cta-actions reveal-right delay-2">
+        <a class="btn-white" href="https://wa.me/5521983038369?text=Ol%C3%A1%2C%20quero%20solicitar%20uma%20proposta%20t%C3%A9cnica%20para%20o%20projeto%20Academia%20de%20Pra%C3%A7as%20P%C3%BAblicas." target="_blank" rel="noopener noreferrer">
+          <i class="fa-brands fa-whatsapp"></i>
+          Falar com especialista
+        </a>
+        <a class="btn-outline-white" href="mailto:comercial@br101.ind.br">
+          <i class="fa-regular fa-envelope"></i>
+          comercial@br101.ind.br
+        </a>
+        <a class="btn-outline-white" href="tel:+5521983038369">
+          <i class="fa-solid fa-phone"></i>
+          +55 21 98303-8369
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+   FOOTER
+============================================================ -->
+<footer class="footer">
+  <div class="container footer-main">
+    <div class="footer-brand">
+      <img src="assets/img-webp/logo-br101.webp" alt="BR101 Soluções de Engenharia" height="512" width="512"/>
+      <p>
+        Engenharia, fabricação e montagem de estruturas metálicas, mobiliário urbano 
+        e soluções industriais sob medida. Duque de Caxias — Rio de Janeiro.
+      </p>
+    </div>
+    <div class="footer-col">
+      <h4>Navegação</h4>
+      <a href="index.html">Home</a>
+      <a href="index.html#sobre">Sobre a BR101</a>
+      <a href="index.html#produtos">Soluções</a>
+      <a href="index.html#portfolio">Portfólio</a>
+      <a href="grandes-projetos.html">Grandes Projetos</a>
+      <a href="index.html#contato">Contato</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contato</h4>
+      <a href="tel:+5521983038369">+55 21 98303-8369</a>
+      <a href="https://wa.me/5521983038369" target="_blank" rel="noopener noreferrer">WhatsApp comercial</a>
+      <a href="mailto:comercial@br101.ind.br">comercial@br101.ind.br</a>
+      <span>Rua Almirante Mauriti</span>
+      <span>Jardim Gramacho, Duque de Caxias — RJ</span>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 BR101 Soluções de Engenharia. Todos os direitos reservados. <a href="politica-de-privacidade.html">Política de Privacidade</a></p>
+    <a class="back-top" href="#home" aria-label="Voltar ao topo">↑</a>
+  </div>
+</footer>
+
+
+<!-- Floating WhatsApp -->
+<a class="floating-wa" href="https://wa.me/5521983038369?text=Ol%C3%A1%2C%20vim%20pela%20p%C3%A1gina%20de%20Grandes%20Projetos%20da%20BR101%20e%20gostaria%20de%20solicitar%20uma%20cota%C3%A7%C3%A3o." target="_blank" rel="noopener noreferrer" aria-label="Falar com a BR101 no WhatsApp">
+  <i class="fa-brands fa-whatsapp" style="font-size:1.2rem;"></i>
+  <span>Orçamento</span>
+</a>
+
+
+<!-- ============================================================
+   SCRIPTS
+============================================================ -->
+<script>
+(function () {
+
+  /* ── Scroll reveal ── */
+  const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  revealEls.forEach(el => io.observe(el));
+
+  /* ── Mobile menu ── */
+  const toggle = document.getElementById('menuToggle');
+  const nav = document.getElementById('navLinks');
+
+  toggle.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+
+  nav.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      nav.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    });
+  });
+
+  /* ── Sticky header shadow ── */
+  const header = document.querySelector('.site-header');
+  window.addEventListener('scroll', () => {
+    header.style.boxShadow = window.scrollY > 20
+      ? '0 4px 32px rgba(0,0,0,0.4)'
+      : 'none';
+  }, { passive: true });
+
+  /* ── Counter animation for stat numbers ── */
+  function animateCounter(el, target, duration) {
+    const start = performance.now();
+    const isPercent = target.includes('%');
+    const isPlus = target.includes('+');
+    const num = parseFloat(target.replace(/[^0-9.]/g, ''));
+    const update = (now) => {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const current = Math.round(num * eased);
+      el.textContent = (isPlus ? '+' : '') + current + (isPercent ? '%' : '');
+      if (progress < 1) requestAnimationFrame(update);
+    };
+    requestAnimationFrame(update);
+  }
+
+  const statEls = document.querySelectorAll('.stat-number, .impact-num-val');
+  const statObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const el = e.target;
+        const raw = el.textContent.trim();
+        if (/^[+\d]/.test(raw) && raw !== '100%' && raw !== 'RJ' && raw !== 'NBR') {
+          animateCounter(el, raw, 1200);
+        }
+        statObserver.unobserve(el);
+      }
+    });
+  }, { threshold: 0.5 });
+  statEls.forEach(el => statObserver.observe(el));
+
+})();
+</script>
+
+</body>
+</html>

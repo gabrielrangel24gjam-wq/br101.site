@@ -1,0 +1,24 @@
+<svg width="400" height="200" viewBox="0 0 680 400" xmlns="http://www.w3.org/2000/svg">
+<rect width="680" height="400" fill="#0b1220"/>
+<line x1="0" y1="40" x2="680" y2="40" stroke="#1687d9" stroke-width="0.3" opacity="0.15"/><line x1="0" y1="120" x2="680" y2="120" stroke="#1687d9" stroke-width="0.3" opacity="0.15"/><line x1="0" y1="200" x2="680" y2="200" stroke="#1687d9" stroke-width="0.3" opacity="0.15"/><line x1="0" y1="280" x2="680" y2="280" stroke="#1687d9" stroke-width="0.3" opacity="0.15"/><line x1="0" y1="360" x2="680" y2="360" stroke="#1687d9" stroke-width="0.3" opacity="0.15"/><line x1="120" y1="0" x2="120" y2="400" stroke="#1687d9" stroke-width="0.3" opacity="0.15"/><line x1="240" y1="0" x2="240" y2="400" stroke="#1687d9" stroke-width="0.3" opacity="0.15"/><line x1="360" y1="0" x2="360" y2="400" stroke="#1687d9" stroke-width="0.3" opacity="0.15"/><line x1="480" y1="0" x2="480" y2="400" stroke="#1687d9" stroke-width="0.3" opacity="0.15"/><line x1="600" y1="0" x2="600" y2="400" stroke="#1687d9" stroke-width="0.3" opacity="0.15"/>
+<rect x="260" y="60" width="160" height="280" fill="#1a2840" stroke="#1687d9" stroke-width="0.5" opacity="0.4"/>
+<rect x="50" y="140" width="210" height="120" fill="#162238" stroke="#1687d9" stroke-width="1.5" rx="3"/><rect x="58" y="148" width="194" height="104" fill="#101928" rx="2"/>
+<line x1="80" y1="200" x2="130" y2="200" stroke="#56c7ff" stroke-width="1.2" opacity="0.7"/><polygon points="130,196 140,200 130,204" fill="#56c7ff" opacity="0.7"/>
+<line x1="80" y1="185" x2="115" y2="185" stroke="#56c7ff" stroke-width="0.8" opacity="0.45"/><polygon points="115,182 122,185 115,188" fill="#56c7ff" opacity="0.45"/>
+<rect x="260" y="128" width="160" height="144" fill="#1a2840" stroke="#56c7ff" stroke-width="2" rx="2"/><rect x="268" y="136" width="144" height="128" fill="#101928" rx="1"/>
+<rect x="272" y="140" width="136" height="18" fill="#162238" stroke="#1687d9" stroke-width="0.8" rx="1"/><rect x="272" y="162" width="136" height="18" fill="#162238" stroke="#1687d9" stroke-width="0.8" rx="1"/><rect x="272" y="184" width="136" height="18" fill="#162238" stroke="#1687d9" stroke-width="0.8" rx="1"/><rect x="272" y="206" width="136" height="18" fill="#162238" stroke="#1687d9" stroke-width="0.8" rx="1"/><rect x="272" y="228" width="136" height="18" fill="#162238" stroke="#1687d9" stroke-width="0.8" rx="1"/>
+<line x1="277" y1="144" x2="403" y2="144" stroke="#56c7ff" stroke-width="0.5" opacity="0.4"/><line x1="277" y1="166" x2="403" y2="166" stroke="#56c7ff" stroke-width="0.5" opacity="0.4"/><line x1="277" y1="188" x2="403" y2="188" stroke="#56c7ff" stroke-width="0.5" opacity="0.4"/><line x1="277" y1="210" x2="403" y2="210" stroke="#56c7ff" stroke-width="0.5" opacity="0.4"/><line x1="277" y1="232" x2="403" y2="232" stroke="#56c7ff" stroke-width="0.5" opacity="0.4"/>
+<rect x="396" y="105" width="40" height="60" fill="#1f1a10" stroke="#e8a020" stroke-width="1.5" rx="3"/><rect x="402" y="111" width="28" height="30" fill="#161208" rx="2"/><circle cx="416" cy="126" r="8" fill="#e8a020" opacity="0.7"/><circle cx="416" cy="126" r="4" fill="#161208"/>
+<circle cx="406" cy="148" r="3" fill="#e8a020"/><circle cx="416" cy="148" r="3" fill="#162238" stroke="#e8a020" stroke-width="0.8"/>
+<rect x="410" y="165" width="6" height="40" fill="#1687d9" rx="1"/><rect x="395" y="163" width="22" height="6" fill="#1687d9" rx="1"/>
+<rect x="420" y="140" width="210" height="120" fill="#162238" stroke="#1687d9" stroke-width="1.5" rx="3"/><rect x="428" y="148" width="194" height="104" fill="#101928" rx="2"/>
+<line x1="450" y1="200" x2="500" y2="200" stroke="#1687d9" stroke-width="0.8" opacity="0.3" stroke-dasharray="4 3"/>
+<line x1="470" y1="192" x2="484" y2="208" stroke="#1687d9" stroke-width="1.5" opacity="0.4"/><line x1="484" y1="192" x2="470" y2="208" stroke="#1687d9" stroke-width="1.5" opacity="0.4"/>
+<rect x="530" y="188" width="58" height="24" fill="#1a2840" stroke="#1687d9" stroke-width="0.8" rx="3"/>
+<text x="559" y="204" fill="#56c7ff" font-family="'Barlow Condensed',sans-serif" font-size="11" font-weight="700" text-anchor="middle" letter-spacing="0.5">FECHADO</text>
+<rect x="92" y="188" width="50" height="24" fill="#1a2840" stroke="#56c7ff" stroke-width="0.8" rx="3"/>
+<text x="117" y="204" fill="#56c7ff" font-family="'Barlow Condensed',sans-serif" font-size="11" font-weight="700" text-anchor="middle" letter-spacing="0.5">ABERTO</text>
+<rect x="20" y="12" width="280" height="26" fill="#162238" stroke="#1687d9" stroke-width="0.8" rx="4"/>
+<text x="30" y="29" fill="#56c7ff" font-family="'Barlow Condensed', sans-serif" font-size="11" font-weight="700" letter-spacing="1.5">DAMPERS CORTA-FOGO E GAS</text>
+<rect x="20" y="386" width="640" height="2" fill="#1687d9" opacity="0.5" rx="1"/>
+</svg>
