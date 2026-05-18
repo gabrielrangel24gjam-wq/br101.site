@@ -44,7 +44,7 @@
   --bg:          #f4f7fb;
   --bg-soft:     #eef3fa;
   --text:        #111827;
-  --muted:       #3e5166;
+  --muted:       #34465c;
   --line:        #dde8f5;
 
   /* Sombras */
@@ -792,6 +792,7 @@ p { margin-top: 0; }
   color: var(--muted);
   font-size: 0.97rem;
   line-height: 1.72;
+  font-weight: 500;
   margin-bottom: 0;
 }
 
@@ -911,7 +912,7 @@ p { margin-top: 0; }
 }
 
 .capability-card h3 { color: var(--text); }
-.capability-card p  { color: var(--muted); line-height: 1.7; }
+.capability-card p  { color: var(--muted); font-weight: 500; line-height: 1.7; }
 
 /* ==========================================================
    9. FEATURE PROJECT (GRANDES PROJETOS)
@@ -999,7 +1000,7 @@ p { margin-top: 0; }
   background: rgba(244,97,26,0.08);
   font-family: 'Barlow Condensed', sans-serif;
   font-size: 0.72rem;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: #f4611a;
@@ -1230,9 +1231,10 @@ p { margin-top: 0; }
 .product-card h3 { color: var(--text); }
 
 .product-card p {
-  color: var(--muted);
+  color: #34465c;
   font-size: 0.92rem;
   line-height: 1.65;
+  font-weight: 500;
   margin: 0;
 }
 
@@ -1395,7 +1397,8 @@ p { margin-top: 0; }
   text-align: right;
   font-size: 0.9rem;
   line-height: 1.65;
-  color: var(--muted);
+  color: #4a6280;
+  font-weight: 500;
 }
 
 .gallery-grid {
@@ -1470,7 +1473,7 @@ p { margin-top: 0; }
 .contact > .container > div > h2 { color: var(--text); }
 
 .contact > .container > div > p {
-  color: var(--muted);
+  color: #34465c;
   font-size: 1rem;
   line-height: 1.75;
 }
@@ -1489,7 +1492,7 @@ p { margin-top: 0; }
   gap: 10px;
   font-family: 'Barlow Condensed', sans-serif;
   font-size: 1.02rem;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: 0.04em;
   color: var(--text);
   transition: color 0.2s;
@@ -1519,10 +1522,10 @@ p { margin-top: 0; }
   border-radius: 999px;
   font-family: 'Barlow Condensed', sans-serif;
   font-size: 0.75rem;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: #34465c;
   background: var(--white);
 }
 
@@ -1585,7 +1588,7 @@ input:focus, textarea:focus {
   grid-template-columns: 18px 1fr;
   gap: 10px;
   align-items: start;
-  color: var(--muted);
+  color: #34465c;
   font-size: 0.85rem;
   font-weight: 500;
   line-height: 1.55;
@@ -1605,13 +1608,13 @@ input:focus, textarea:focus {
 
 .form-note {
   margin: 0;
-  color: var(--muted);
+  color: #34465c;
   font-size: 0.82rem;
   line-height: 1.55;
   font-family: 'DM Sans', sans-serif;
   text-transform: none;
   letter-spacing: 0;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .form-status {
@@ -2229,7 +2232,7 @@ input:focus, textarea:focus {
 
 /* Norm disclaimer */
 .hvac-norm-disclaimer p {
-  color: #c8daf0;
+  color: #162238;
 }
 
 /* Areas card paragraph text */
