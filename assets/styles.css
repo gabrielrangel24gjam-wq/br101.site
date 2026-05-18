@@ -62,7 +62,10 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
 
 body {
   font-family: 'DM Sans', 'Segoe UI', Arial, system-ui, sans-serif;
@@ -73,7 +76,11 @@ body {
 }
 
 a  { color: inherit; text-decoration: none; }
-img { display: block; max-width: 100%; }
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
 
 /* ==========================================================
    2. TIPOGRAFIA
@@ -84,6 +91,7 @@ h1, h2, h3 {
   text-transform: uppercase;
   letter-spacing: -0.01em;
   line-height: 0.97;
+  overflow-wrap: anywhere;
 }
 
 h1 {
@@ -189,6 +197,8 @@ p { margin-top: 0; }
   text-transform: uppercase;
   cursor: pointer;
   transition: transform 0.22s ease, box-shadow 0.22s ease;
+  max-width: 100%;
+  text-align: center;
 }
 
 .btn span {
@@ -196,7 +206,9 @@ p { margin-top: 0; }
   z-index: 2;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
+  min-width: 0;
 }
 
 /* Shimmer sweep */
@@ -306,6 +318,7 @@ p { margin-top: 0; }
   border-bottom: 1px solid rgba(255,255,255,0.06);
   padding: 0 22px;
   max-width: 100%;
+  min-width: 0;
 }
 
 .logo {
@@ -371,6 +384,7 @@ p { margin-top: 0; }
   align-items: center;
   gap: 12px;
   flex: 0 0 auto;
+  min-width: 0;
 }
 
 .header-social {
@@ -437,6 +451,7 @@ p { margin-top: 0; }
   backdrop-filter: blur(10px);
   cursor: pointer;
   transition: background 0.25s;
+  flex: 0 0 auto;
 }
 
 .menu-toggle span {
@@ -1130,6 +1145,7 @@ p { margin-top: 0; }
   gap: 22px;
   transition: transform 0.55s var(--ease);
   will-change: transform;
+  min-width: 0;
 }
 
 .product-card {
@@ -1832,6 +1848,15 @@ input:focus, textarea:focus {
 
 /* 1200px */
 @media (max-width: 1200px) {
+  .nav {
+    gap: 14px;
+    padding-inline: 16px;
+  }
+
+  .nav-links a {
+    padding-inline: 12px;
+  }
+
   .footer-main {
     grid-template-columns: 1fr 1fr;
   }
@@ -1862,6 +1887,14 @@ input:focus, textarea:focus {
 
 /* 980px — Mobile menu threshold */
 @media (max-width: 980px) {
+  .site-header {
+    background: rgba(10, 16, 30, 0.96);
+  }
+
+  .nav {
+    height: 72px;
+  }
+
   .trust-strip-grid {
     grid-template-columns: 1fr;
     gap: 0;
@@ -1880,6 +1913,13 @@ input:focus, textarea:focus {
   .header-social { display: none; }
   .menu-toggle { display: flex; }
 
+  .menu-toggle.open {
+    position: fixed;
+    top: 18px;
+    right: 22px;
+    z-index: 1100;
+  }
+
   /* Mobile overlay menu */
   .nav-center.open {
     display: flex;
@@ -1890,6 +1930,8 @@ input:focus, textarea:focus {
     z-index: 1000;
     align-items: center;
     justify-content: center;
+    padding: 96px 22px 40px;
+    overflow-y: auto;
   }
 
   .nav-center.open .nav-links {
@@ -1901,6 +1943,10 @@ input:focus, textarea:focus {
     max-width: 320px;
     padding: 0;
     text-align: center;
+  }
+
+  .product-card {
+    flex-basis: calc((100% - 22px) / 2);
   }
 
   .nav-center.open .nav-links a {
@@ -1955,10 +2001,31 @@ input:focus, textarea:focus {
 @media (max-width: 768px) {
   .section { padding: 72px 0; }
 
-  h1 { font-size: clamp(2.8rem, 10vw, 4.5rem); }
+  .container {
+    width: min(100% - 32px, 1300px);
+  }
+
+  h1 { font-size: clamp(2.45rem, 10vw, 4.5rem); }
   h2 { font-size: clamp(1.8rem, 6vw, 2.8rem); }
 
-  .hero { padding-top: 100px; }
+  .hero {
+    min-height: auto;
+    padding-top: 92px;
+  }
+
+  .hero-content {
+    padding: 72px 0 80px;
+  }
+
+  .hero-text {
+    font-size: 0.98rem;
+    line-height: 1.68;
+  }
+
+  .hero-proof {
+    gap: 8px;
+  }
+
   .hero-scroll-indicator { display: none; }
 
   .hero-proof span { font-size: 0.72rem; padding: 7px 12px; }
@@ -1970,6 +2037,7 @@ input:focus, textarea:focus {
   .hero-actions .btn {
     width: 100%;
     justify-content: center;
+    padding-inline: 18px;
   }
 
   .carousel-heading {
@@ -1979,7 +2047,7 @@ input:focus, textarea:focus {
   }
 
   .gallery-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 16px;
   }
 
@@ -2005,6 +2073,38 @@ input:focus, textarea:focus {
 
 /* 640px */
 @media (max-width: 640px) {
+  .nav {
+    gap: 10px;
+    padding-inline: 14px;
+  }
+
+  .logo img {
+    width: 82px;
+  }
+
+  .nav-button {
+    display: none;
+  }
+
+  .product-carousel {
+    padding-inline: 0;
+  }
+
+  .product-carousel::before,
+  .product-carousel::after {
+    width: 28px;
+  }
+
+  .product-card {
+    flex-basis: 100%;
+    min-height: 0;
+    padding: 22px;
+  }
+
+  .product-card img {
+    height: 190px;
+  }
+
   .hero-proof span { width: 100%; justify-content: center; }
 
   .numbers { grid-template-columns: 1fr 1fr; }
@@ -2020,10 +2120,91 @@ input:focus, textarea:focus {
 
 /* 480px */
 @media (max-width: 480px) {
+  .container {
+    width: min(100% - 28px, 1300px);
+  }
+
+  .section { padding: 60px 0; }
+
+  h1 {
+    font-size: clamp(2.15rem, 12vw, 3.5rem);
+    line-height: 0.98;
+  }
+
+  h2 {
+    line-height: 1.05;
+  }
+
+  .btn {
+    width: 100%;
+    min-height: 50px;
+    padding-inline: 16px;
+    white-space: normal;
+  }
+
+  .hero-content {
+    padding: 64px 0 68px;
+  }
+
+  .hero-kicker {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .hero-actions {
+    gap: 10px;
+  }
+
   .numbers { grid-template-columns: 1fr; }
   .fp-visual img { height: 220px; }
   .header-top { display: none; }
   .hero { padding-top: 80px; }
+
+  .about-card,
+  .capability-card,
+  .product-card,
+  .form {
+    border-radius: 14px;
+  }
+
+  .about-card,
+  .capability-card {
+    padding: 22px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-cta {
+    padding: 48px 0;
+  }
+
+  .footer-link {
+    overflow-wrap: anywhere;
+  }
+}
+
+@media (max-width: 360px) {
+  .container {
+    width: min(100% - 24px, 1300px);
+  }
+
+  .logo img {
+    width: 76px;
+  }
+
+  .menu-toggle {
+    width: 42px;
+    height: 42px;
+  }
+
+  .hero-proof span,
+  .contact-badge {
+    white-space: normal;
+    text-align: center;
+  }
 }
 
 /* ── CONTRASTE MELHORADO — correções adicionais ── */
