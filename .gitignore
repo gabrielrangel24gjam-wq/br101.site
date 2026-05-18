@@ -4,3 +4,14 @@ Thumbs.db
 node_modules/
 .env
 *.log
+
+# Backend PHP — não usado no GitHub Pages
+api/
+config/
+database/
+
+# Documentação interna
+LEIAME-INSTALACAO.md
+
+# Capturas de tela locais
+validation-screenshots/
