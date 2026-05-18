@@ -278,43 +278,40 @@
   }
 
   /* =========================================================
-     07. FORMULÁRIO — salva no PHP/MySQL e abre WhatsApp
+     07. FORMULÁRIO — valida e abre WhatsApp (site estático)
   ========================================================= */
   function initForm() {
-    const form       = document.querySelector('#contact-form');
+    const form     = document.querySelector('#contact-form');
     if (!form) return;
 
-    const statusEl   = form.querySelector('#form-status');
-    const submitBtn  = form.querySelector('button[type="submit"]');
-    const btnSpan    = submitBtn?.querySelector('span');
-    const originalTx = btnSpan?.textContent || 'Enviar';
+    const statusEl = form.querySelector('#form-status');
 
-    function setStatus(msg, cls = '') {
+    function setStatus(msg, cls) {
       if (!statusEl) return;
       statusEl.textContent = msg;
       statusEl.className   = `form-status ${cls}`.trim();
     }
 
     function buildWaUrl(data) {
-      const nome      = (data.get('nome')      || '').trim();
-      const email     = (data.get('email')     || '').trim();
-      const telefone  = (data.get('telefone')  || '').trim();
-      const mensagem  = (data.get('mensagem')  || '').trim();
+      const nome     = (data.get('nome')     || '').trim();
+      const email    = (data.get('email')    || '').trim();
+      const telefone = (data.get('telefone') || '').trim();
+      const mensagem = (data.get('mensagem') || '').trim();
 
       const linhas = [
         'Olá, vim pelo site da BR101 e gostaria de solicitar uma cotação.',
         '',
         `Nome: ${nome}`,
         `E-mail: ${email}`,
-        telefone  ? `Telefone/WhatsApp: ${telefone}` : null,
+        telefone ? `Telefone/WhatsApp: ${telefone}` : null,
         '',
-        mensagem  ? `Mensagem: ${mensagem}` : 'Gostaria de receber uma orientação inicial.'
+        mensagem ? `Mensagem: ${mensagem}` : 'Gostaria de receber uma orientação inicial.'
       ].filter(l => l !== null);
 
       return `https://wa.me/5521983038369?text=${encodeURIComponent(linhas.join('\n'))}`;
     }
 
-    form.addEventListener('submit', async (e) => {
+    form.addEventListener('submit', (e) => {
       e.preventDefault();
       if (!form.checkValidity()) { form.reportValidity(); return; }
 
@@ -323,49 +320,9 @@
       // Honeypot check
       if ((data.get('website') || '').trim()) return;
 
-      const waUrl = buildWaUrl(data);
-
-      if (submitBtn) submitBtn.disabled = true;
-      if (btnSpan)   btnSpan.innerHTML  = '<i class="fa-solid fa-spinner fa-spin"></i> &nbsp;Enviando...';
-      setStatus('Salvando seus dados com segurança…', 'is-loading');
-
-      try {
-        const res    = await fetch(form.action, {
-          method:  'POST',
-          body:    data,
-          headers: { 'Accept': 'application/json' }
-        });
-        const result = await res.json().catch(() => null);
-
-        if (!res.ok || !result?.success) {
-          throw new Error(result?.message || 'Falha ao salvar contato.');
-        }
-
-        setStatus('Dados salvos! Abrindo WhatsApp…', 'is-success');
-        window.open(waUrl, '_blank', 'noopener,noreferrer');
-        form.reset();
-
-      } catch (err) {
-        console.error('[BR101 Form]', err);
-        // Fallback: abre o WhatsApp mesmo sem salvar no banco
-        setStatus(
-          'Não foi possível salvar no servidor. Clique para abrir o WhatsApp diretamente.',
-          'is-error'
-        );
-        const fbLink = document.createElement('a');
-        fbLink.href   = waUrl;
-        fbLink.target = '_blank';
-        fbLink.rel    = 'noopener noreferrer';
-        fbLink.textContent = 'Abrir WhatsApp';
-        fbLink.style.cssText =
-          'display:block;margin-top:8px;color:var(--blue);font-weight:700;';
-        statusEl?.after(fbLink);
-
-      } finally {
-        if (submitBtn) submitBtn.disabled = false;
-        if (btnSpan)   btnSpan.innerHTML  =
-          '<i class="fa-brands fa-whatsapp"></i> &nbsp;Salvar e abrir WhatsApp';
-      }
+      window.open(buildWaUrl(data), '_blank', 'noopener,noreferrer');
+      setStatus('WhatsApp aberto com sua mensagem preenchida!', 'is-success');
+      form.reset();
     });
   }
 
