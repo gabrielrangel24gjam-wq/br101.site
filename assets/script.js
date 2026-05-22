@@ -7,7 +7,7 @@
    04. Tilt cards (efeito 3D hover)
    05. Magnetic buttons
    06. Scroll suave para âncoras
-   07. Formulário WhatsApp + API PHP
+   07. Formulário WhatsApp (site estático)
    08. Header scroll behavior
    09. Contador de números animado
 ========================================================= */
@@ -27,29 +27,46 @@
     if (!toggle || !navCtr) return;
 
     const links = navCtr.querySelectorAll('a');
+    let lastFocus = null;
+
+    function isOpen() {
+      return navCtr.classList.contains('open');
+    }
+
+    function focusableMenuItems() {
+      return [...links, toggle].filter(item => !item.hasAttribute('disabled'));
+    }
 
     function openMenu() {
       navCtr.classList.add('open');
       toggle.classList.add('open');
       toggle.setAttribute('aria-expanded', 'true');
-      document.body.style.overflow = 'hidden';
+      toggle.setAttribute('aria-label', 'Fechar menu');
+      document.body.classList.add('mobile-nav-open');
+      lastFocus = document.activeElement;
+      links[0]?.focus();
     }
 
     function closeMenu() {
+      if (!isOpen()) return;
       navCtr.classList.remove('open');
       toggle.classList.remove('open');
       toggle.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = '';
+      toggle.setAttribute('aria-label', 'Abrir menu');
+      document.body.classList.remove('mobile-nav-open');
+      if (lastFocus === toggle || navCtr.contains(lastFocus)) toggle.focus();
     }
 
     toggle.addEventListener('click', () => {
-      const isOpen = navCtr.classList.contains('open');
-      isOpen ? closeMenu() : openMenu();
+      isOpen() ? closeMenu() : openMenu();
+    });
+
+    navCtr.addEventListener('click', (e) => {
+      if (e.target === navCtr) closeMenu();
     });
 
     links.forEach(link => {
       link.addEventListener('click', () => {
-        if (link.getAttribute('target') === '_blank') return;
         closeMenu();
       });
     });
@@ -61,7 +78,26 @@
 
     // Fechar ao pressionar Escape
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeMenu();
+      if (!isOpen()) return;
+
+      if (e.key === 'Escape') {
+        closeMenu();
+        return;
+      }
+
+      if (e.key !== 'Tab') return;
+
+      const items = focusableMenuItems();
+      const first = items[0];
+      const last = items[items.length - 1];
+
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
     });
   }
 
@@ -69,7 +105,7 @@
      02. REVEAL ON SCROLL
   ========================================================= */
   function initReveal() {
-    const elements = document.querySelectorAll('.reveal');
+    const elements = document.querySelectorAll('.reveal, .hvac-reveal');
 
     if (!elements.length) return;
 

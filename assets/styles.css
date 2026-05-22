@@ -75,6 +75,11 @@ body {
   line-height: 1.65;
 }
 
+body.mobile-nav-open {
+  overflow: hidden;
+  touch-action: none;
+}
+
 a  { color: inherit; text-decoration: none; }
 img {
   display: block;
@@ -461,6 +466,12 @@ p { margin-top: 0; }
   background: rgba(200,215,235,0.9);
   border-radius: 2px;
   transition: transform 0.3s var(--ease), opacity 0.22s;
+}
+
+.menu-toggle:focus-visible,
+.nav-links a:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 4px;
 }
 
 /* ==========================================================
@@ -1912,40 +1923,76 @@ input:focus, textarea:focus {
 
   .trust-item:last-child { border-bottom: none; }
 
-  .nav-center { display: none; }
+  .nav-center {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    min-height: 100vh;
+    min-height: 100dvh;
+    height: 100vh;
+    height: 100dvh;
+    z-index: 1000;
+    display: flex;
+    justify-content: flex-end;
+    padding: clamp(10px, 2.2vw, 22px);
+    background: rgba(3, 8, 18, 0.68);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition:
+      opacity 0.28s ease,
+      visibility 0.28s ease;
+  }
+
   .header-social { display: none; }
   .menu-toggle { display: flex; }
 
   .menu-toggle.open {
     position: fixed;
-    top: 18px;
-    right: 22px;
-    z-index: 1100;
+    top: max(18px, env(safe-area-inset-top));
+    right: max(18px, env(safe-area-inset-right));
+    z-index: 1010;
+    background: rgba(255,255,255,0.1);
   }
 
   /* Mobile overlay menu */
   .nav-center.open {
-    display: flex;
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(7,13,26,0.98);
-    backdrop-filter: blur(20px);
-    z-index: 1000;
-    align-items: center;
-    justify-content: center;
-    padding: 96px 22px 40px;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    backdrop-filter: blur(10px);
+  }
+
+  .nav-center .nav-links {
+    align-items: stretch;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 10px;
+    width: min(100%, 430px);
+    height: auto;
+    min-height: 0;
+    align-self: stretch;
+    margin-left: auto;
+    padding:
+      max(82px, calc(env(safe-area-inset-top) + 70px))
+      clamp(18px, 4vw, 30px)
+      max(24px, env(safe-area-inset-bottom));
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 22px;
+    background:
+      linear-gradient(160deg, rgba(22,34,56,0.98), rgba(7,16,28,0.99));
+    box-shadow: -20px 0 72px rgba(0,0,0,0.42);
+    text-align: left;
     overflow-y: auto;
+    overscroll-behavior: contain;
+    opacity: 0;
+    transform: translateX(28px);
+    transition: opacity 0.28s ease, transform 0.36s var(--ease);
   }
 
   .nav-center.open .nav-links {
-    flex-direction: column;
-    background: none;
-    border: none;
-    gap: 6px;
-    width: 100%;
-    max-width: 320px;
-    padding: 0;
-    text-align: center;
+    opacity: 1;
+    transform: translateX(0);
   }
 
   .product-card {
@@ -1953,11 +2000,17 @@ input:focus, textarea:focus {
   }
 
   .nav-center.open .nav-links a {
-    font-size: 1.5rem;
-    padding: 14px 24px;
-    border-radius: var(--radius-md);
-    color: rgba(200,215,235,0.85);
+    display: flex;
+    min-height: 54px;
+    align-items: center;
+    padding: 12px 16px;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    color: rgba(226,237,250,0.92);
+    background: rgba(255,255,255,0.045);
+    font-size: clamp(1.08rem, 3.2vw, 1.34rem);
     letter-spacing: 0.08em;
+    white-space: normal;
   }
 
   .nav-center.open .nav-links a:hover {
@@ -1976,6 +2029,12 @@ input:focus, textarea:focus {
 
   .menu-toggle.open span:nth-child(3) {
     transform: translateY(-7px) rotate(-45deg);
+  }
+
+  body.mobile-nav-open .floating-whatsapp {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(14px);
   }
 
   .gallery-header {
@@ -2164,6 +2223,15 @@ input:focus, textarea:focus {
   .header-top { display: none; }
   .hero { padding-top: 80px; }
 
+  .nav-center {
+    padding: 8px;
+  }
+
+  .nav-center .nav-links {
+    border-radius: 18px;
+    padding-inline: 14px;
+  }
+
   .about-card,
   .capability-card,
   .product-card,
@@ -2240,9 +2308,9 @@ input:focus, textarea:focus {
   color: rgba(190, 212, 240, 0.92);
 }
 
-/* Capability lead text on dark bg */
+/* Capability lead text on light bg */
 .capability .lead.dark {
-  color: #d7e6f7;
+  color: rgba(15, 23, 42, 0.72);
 }
 
 /* Feature project paragraph */

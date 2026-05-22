@@ -7,3 +7,14 @@ Options -Indexes
 <FilesMatch "^(database\.php)$">
   Require all denied
 </FilesMatch>
+
+# Block deployment leftovers and data/config artifacts from public access.
+<FilesMatch "(?i)(^\.gitignore$|^\.env(?:\..*)?$|^database\.php$|^config(?:uration)?\.(?:php|ini|json|ya?ml)$|.*\.(?:log|sql|md|zip|bak|backup|old|orig|save|tar|tgz|gz)$)">
+  Require all denied
+</FilesMatch>
+
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>

@@ -7,6 +7,10 @@
 <meta property="og:title" content="BR101 | Grandes Projetos — Academia de Praças Públicas"/>
 <meta property="og:description" content="Estruturas metálicas e mobiliário urbano de alta performance para espaços públicos. Resistência, segurança, durabilidade e qualidade de vida para a população."/>
 <meta property="og:type" content="website"/>
+<meta property="og:url" content="https://www.br101.ind.br/grandes-projetos.html"/>
+<meta property="og:image" content="https://www.br101.ind.br/assets/img-webp/logo-br101.webp"/>
+<meta name="twitter:image" content="https://www.br101.ind.br/assets/img-webp/logo-br101.webp"/>
+<link rel="canonical" href="https://www.br101.ind.br/grandes-projetos.html"/>
 <meta name="theme-color" content="#0b1220"/>
 <title>BR101 | Grandes Projetos — Academia de Praças Públicas</title>
 
@@ -57,6 +61,11 @@ body {
   color: #e0eaf5;
   overflow-x: hidden;
   line-height: 1.6;
+}
+
+body.mobile-nav-open {
+  overflow: hidden;
+  touch-action: none;
 }
 
 a { color: inherit; text-decoration: none; }
@@ -184,6 +193,11 @@ h1, h2, h3, h4 {
   text-transform: uppercase;
 }
 
+.nav-menu {
+  display: flex;
+  align-items: center;
+}
+
 .nav-links a {
   color: var(--steel);
   transition: color 0.2s;
@@ -230,22 +244,32 @@ h1, h2, h3, h4 {
 
 .menu-toggle {
   display: none;
+  align-items: center;
+  justify-content: center;
   flex-direction: column;
   gap: 5px;
-  width: 36px;
+  width: 44px;
+  height: 44px;
   cursor: pointer;
   background: none;
   border: 1px solid rgba(200,212,227,0.2);
-  padding: 8px 7px;
+  padding: 0;
   border-radius: 8px;
 }
 
 .menu-toggle span {
   display: block;
+  width: 22px;
   height: 2px;
   background: var(--steel);
   border-radius: 2px;
   transition: transform 0.3s var(--ease), opacity 0.2s;
+}
+
+.menu-toggle:focus-visible,
+.nav-links a:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: 4px;
 }
 
 /* ============================================================
@@ -1740,31 +1764,92 @@ h1, h2, h3, h4 {
   .gallery-note { text-align: left; max-width: 100%; }
   .footer-main { grid-template-columns: 1fr; gap: 32px; }
   .header-top-inner { flex-direction: column; gap: 4px; font-size: 0.72rem; }
-  .nav-links { display: none; }
-  .menu-toggle { display: flex; }
-  .nav-links.open {
-    display: flex;
-    flex-direction: column;
+  .nav-menu {
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(11,18,32,0.98);
-    backdrop-filter: blur(20px);
-    justify-content: center;
-    align-items: center;
-    gap: 28px;
-    z-index: 800;
-    font-size: 1.4rem;
-    padding: 96px 22px 40px;
+    inset: 0;
+    width: 100vw;
+    min-height: 100vh;
+    min-height: 100dvh;
+    height: 100vh;
+    height: 100dvh;
+    z-index: 920;
+    display: flex;
+    justify-content: flex-end;
+    padding: clamp(10px, 2.2vw, 22px);
+    background: rgba(3,8,18,0.66);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.28s ease, visibility 0.28s ease;
+  }
+  .nav-links {
+    align-items: stretch;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 10px;
+    width: min(100%, 430px);
+    height: auto;
+    min-height: 0;
+    align-self: stretch;
+    margin-left: auto;
+    padding:
+      max(82px, calc(env(safe-area-inset-top) + 70px))
+      clamp(18px, 4vw, 30px)
+      max(24px, env(safe-area-inset-bottom));
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 22px;
+    background: linear-gradient(160deg, rgba(22,34,56,0.98), rgba(7,16,28,0.99));
+    box-shadow: -20px 0 72px rgba(0,0,0,0.42);
     overflow-y: auto;
+    overscroll-behavior: contain;
+    opacity: 0;
+    transform: translateX(28px);
+    transition: opacity 0.28s ease, transform 0.36s var(--ease);
+  }
+  .menu-toggle { display: flex; }
+  .nav-menu.open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    backdrop-filter: blur(10px);
+  }
+  .nav-menu.open .nav-links {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .nav-menu.open .nav-links a {
+    display: flex;
+    min-height: 54px;
+    align-items: center;
+    padding: 12px 16px;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    color: rgba(226,237,250,0.92);
+    background: rgba(255,255,255,0.045);
+    font-size: clamp(1.08rem, 3.2vw, 1.34rem);
+    white-space: normal;
   }
   .menu-toggle.open {
     position: fixed;
-    top: 16px;
-    right: 18px;
-    z-index: 901;
+    top: max(16px, env(safe-area-inset-top));
+    right: max(18px, env(safe-area-inset-right));
+    z-index: 930;
+    background: rgba(255,255,255,0.1);
+  }
+  .menu-toggle.open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .menu-toggle.open span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  .menu-toggle.open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+  body.mobile-nav-open .floating-wa {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(14px);
   }
   .footer-bottom { flex-direction: column; text-align: center; }
   .floating-wa span { display: none; }
@@ -1780,6 +1865,11 @@ h1, h2, h3, h4 {
 @media (max-width: 480px) {
   .container { width: min(100% - 28px, 1280px); }
   .section { padding: 60px 0; }
+  .nav-menu { padding: 8px; }
+  .nav-links {
+    border-radius: 18px;
+    padding-inline: 14px;
+  }
   .hero-content { padding: 62px 0 58px; }
   .hero-label { max-width: 100%; }
   .hero-spec { padding: 16px; }
@@ -1865,11 +1955,12 @@ h1, h2, h3, h4 {
     </div>
   </div>
 
-  <nav class="nav container">
+  <nav class="nav container" aria-label="NavegaÃ§Ã£o principal">
     <a class="logo" href="index.html" aria-label="BR101 — Página inicial">
       <img src="assets/img-webp/logo-br101-branca.webp" alt="BR101 Soluções de Engenharia" height="512" width="512"/>
     </a>
 
+    <div class="nav-menu" id="navMenu">
     <div class="nav-links" id="navLinks">
       <a href="index.html">Home</a>
       <a href="index.html#sobre">Sobre</a>
@@ -1878,13 +1969,14 @@ h1, h2, h3, h4 {
       <a href="grandes-projetos.html" class="active">Grandes Projetos</a>
       <a href="index.html#contato">Contato</a>
     </div>
+    </div>
 
     <a class="nav-cta" href="https://wa.me/5521983038369?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20BR101%20e%20gostaria%20de%20saber%20mais%20sobre%20o%20projeto%20Academia%20de%20Pra%C3%A7as%20P%C3%BAblicas." target="_blank" rel="noopener noreferrer">
       <i class="fa-brands fa-whatsapp"></i>
       Solicitar orçamento
     </a>
 
-    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false" type="button">
+    <button class="menu-toggle" id="menuToggle" aria-controls="navMenu" aria-label="Abrir menu" aria-expanded="false" type="button">
       <span></span>
       <span></span>
       <span></span>
@@ -2552,6 +2644,7 @@ h1, h2, h3, h4 {
       <h4>Contato</h4>
       <a href="tel:+5521983038369">+55 21 98303-8369</a>
       <a href="https://wa.me/5521983038369" target="_blank" rel="noopener noreferrer">WhatsApp comercial</a>
+      <a href="https://www.instagram.com/br101.construcoes/" target="_blank" rel="noopener noreferrer" aria-label="Instagram da BR101 Construções">Instagram oficial</a>
       <a href="mailto:comercial@br101.ind.br">comercial@br101.ind.br</a>
       <span>Rua Almirante Mauriti</span>
       <span>Jardim Gramacho, Duque de Caxias — RJ</span>
@@ -2592,22 +2685,73 @@ h1, h2, h3, h4 {
 
   /* ── Mobile menu ── */
   const toggle = document.getElementById('menuToggle');
-  const nav = document.getElementById('navLinks');
+  const nav = document.getElementById('navMenu');
+  const links = nav?.querySelectorAll('a') || [];
+  let lastFocus = null;
+
+  function isMenuOpen() {
+    return nav?.classList.contains('open');
+  }
+
+  function getFocusableMenuItems() {
+    return [...links, toggle].filter(item => item && !item.hasAttribute('disabled'));
+  }
+
+  function closeMenu() {
+    if (!isMenuOpen()) return;
+    nav.classList.remove('open');
+    toggle.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'Abrir menu');
+    document.body.classList.remove('mobile-nav-open');
+    if (lastFocus === toggle || nav.contains(lastFocus)) toggle.focus();
+  }
+
+  function openMenu() {
+    nav.classList.add('open');
+    toggle.classList.add('open');
+    toggle.setAttribute('aria-expanded', 'true');
+    toggle.setAttribute('aria-label', 'Fechar menu');
+    document.body.classList.add('mobile-nav-open');
+    lastFocus = document.activeElement;
+    links[0]?.focus();
+  }
 
   toggle?.addEventListener('click', () => {
-    const open = nav.classList.toggle('open');
-    toggle.classList.toggle('open', open);
-    toggle.setAttribute('aria-expanded', open);
-    document.body.style.overflow = open ? 'hidden' : '';
+    isMenuOpen() ? closeMenu() : openMenu();
   });
 
-  nav?.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', () => {
-      nav.classList.remove('open');
-      toggle.classList.remove('open');
-      toggle.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = '';
-    });
+  nav?.addEventListener('click', (e) => {
+    if (e.target === nav) closeMenu();
+  });
+
+  links.forEach(a => a.addEventListener('click', closeMenu));
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) closeMenu();
+  }, { passive: true });
+
+  document.addEventListener('keydown', (e) => {
+    if (!isMenuOpen()) return;
+
+    if (e.key === 'Escape') {
+      closeMenu();
+      return;
+    }
+
+    if (e.key !== 'Tab') return;
+
+    const items = getFocusableMenuItems();
+    const first = items[0];
+    const last = items[items.length - 1];
+
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
   });
 
   /* ── Sticky header shadow ── */
